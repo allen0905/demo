@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.map{
+		width: 800px;
+		height: 600px;
+		background-color: #ccc;
+		position: relative;
+	}
+	</style>
+</head>
+<body>
+	<div class="map"></div>
+
+	<script type="text/javascript">
+		var map = document.querySelector(".map");
+		//贪吃蛇自调用函数
+		(function(){
+			//var map = document.querySelector(".map");
+			var diamondsArr = [];
+			//小方块创建构造函数
+			function Food(width,height,color){
+				this.width = width || 20;
+				this.height = height || 20;
+				this.color = color || "green";
+				this.foodX = 0;
+				this.foodY = 0;
+				this.ele = document.createElement("div");//创建小方块元素
+			};
+
+			//Food构造函数原型中添加 产生小方块函数
+			Food.prototype.init = function(map){
+				remove();
+				var diamonds = this.ele;
+				diamonds.style.position = "absolute";
+				diamonds.style.width = this.width + "px";
+				diamonds.style.height = this.height + "px";
+				diamonds.style.backgroundColor = this.color;
+				//小方块横纵坐标
+				this.foodX = Math.floor(Math.random()*(map.offsetWidth/this.width))*this.width;
+				this.foodY = Math.floor(Math.random()*(map.offsetHeight/this.height))*this.height;
+				diamonds.style.left = this.foodX + "px";
+				diamonds.style.top = this.foodY + "px";
+				map.appendChild(diamonds);//将小方块元素添加在mpa元素中
+				diamondsArr.push(diamonds);
+			};
+
+			//console.log(diamondsArr);
+
+			//删除小方块
+			function remove(){
+				for(var i = 0;i < diamondsArr.length;i++){
+					diamondsArr[i].parentNode.removeChild(diamondsArr[i]);
+					diamondsArr.splice(i,1);
+				}
+			}
+			window.food = new Food();//实例化
+		}());
+		food.init(map);//小蛇的食物（小方块）
+
+		//小蛇的构造函数
+		(function(){
+			//var map = document.querySelector(".map");
+			var snakeArr = [];
+			function Snake(width,height,direction){
+				this.width = width || 20;
+				this.height = height || 20;
+				this.body = [
+					{x:3,y:2,color:"red"},
+					{x:2,y:2,color:"orange"},
+					{x:1,y:2,color:"orange"}
+				];
+				this.direction = direction || "right";
+			}
+
+			//初始化小蛇的身体
+			Snake.prototype.init = function(map){
+				remove();
+				for(var i = 0;i < this.body.length;i++){
+					var div = document.createElement("div");
+					map.appendChild(div);
+					div.style.position = "absolute";
+					div.style.width = this.width + "px";
+					div.style.height = this.height + "px";
+					div.style.backgroundColor = this.body[i].color;
+					div.style.left = this.body[i].x*this.width + "px";
+					div.style.top = this.body[i].y*this.height + "px";
+					//將小蛇的身体添加到数组中
+					snakeArr.push(div);
+				}
+			}
+
+			//小蛇动起来
+			Snake.prototype.move = function(food,map){
+				//将小蛇前面的身体的坐标给后面一个身体的坐标，小蛇就动起来（小蛇的身体动） 重点
+				for(var i = this.body.length-1;i > 0;i--){
+					this.body[i].x = this.body[i-1].x;
+					this.body[i].y = this.body[i-1].y;
+				}
+
+				//小蛇的蛇头动	重点
+				switch(this.direction){
+					case "right":this.body[0].x+=1;//让蛇头的x值 +1
+					break;
+					case "left":this.body[0].x-=1;
+					break;
+					case "top":this.body[0].y-=1;
+					break;
+					case "bottom":this.body[0].y+=1;
+					break;
+				}
+			}
+
+			//删除小蛇身体的私有函数
+			function remove(){
+				for(var i = snakeArr.length-1;i>=0;i--){
+					//倒序循环，先从尾巴删除
+					snakeArr[i].parentNode.removeChild(snakeArr[i]);
+					snakeArr.splice(i,1);
+				}
+			}
+			window.snake = new Snake();
+		}());
+		//snake.init(map);//小蛇
+		
+		//游戏初始化的自调用函数
+		(function(){
+			function Game(map){
+				this.food = food;
+				this.snake = snake;
+				this.map = map;
+				that = this;
+			}
+			Game.prototype.init = function(map){
+				this.food.init(this.map);
+				this.snake.init(this.map);
+				this.runSnake(map);
+			}
+
+			Game.prototype.runSnake = function(map){
+				var timer = setInterval(function(){
+					that.snake.move(that.food,that.map);
+					that.snake.init(that.map);
+
+					var snakeX = that.snake.body[0].x;
+					var snakeY = that.snake.body[0].y;
+					//console.log(that.snake.body[0].x);
+					if (snakeX <0 || snakeX >=40 || snakeY <0 || snakeY >= 30) {
+						clearInterval(timer);
+						alert("游戏结束！！！");
+					}
+					document.onkeydown = function(e){//按键按下事件
+						switch(e.keyCode){//判断按键的键值，从而改变方向
+							case 37:that.snake.direction = "left";
+							break;
+							case 38:that.snake.direction = "top";
+							break;
+							case 39:that.snake.direction = "right";
+							break;
+							case 40:that.snake.direction = "bottom";
+							break;
+						}
+					}
+					//console.log(snakeX*20+"===="+that.food.foodX);
+					if(snakeX*20 == that.food.foodX && snakeY*20 == that.food.foodY){
+						that.food.init(this.map);
+						var last = that.snake.body[that.snake.body.length-1];
+						//当小蛇吃到食物时，复制最后一个的身体并添加到数组中
+						that.snake.body.push({
+							x:last.x,
+							y:last.y,
+							color:last.color
+						});
+					}
+				},150);
+				
+				
+			}
+			window.game = new Game(map);
+		}());
+
+		game.init(map);
+		
+
+		
+	</script>
+</body>
+</html>
