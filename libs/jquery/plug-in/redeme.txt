@@ -1,0 +1,2 @@
+jquery.color.js 颜色过度
+jquery.lazyload.js 图片懒加载 src改为data-original  lazyload()方法
