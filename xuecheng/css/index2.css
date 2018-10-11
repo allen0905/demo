@@ -1,0 +1,288 @@
+@charset "utf-8";
+/* 课程部分 */
+
+html,body,ul,li,ol,div,a,img,span,h1,h2,h3,h4,h5,h6,p{
+	margin: 0;
+	padding: 0;
+}
+.main2-nav{
+	width: 100%;
+	height: 190px;
+	background-color: white;
+	position: relative;
+}
+
+.nav-a{
+	width: 1200px;
+	height: 65px;
+	margin: 0 auto;
+	border-bottom: 1px solid grey;
+}
+
+.nav-b{
+	width: 1200px;
+	height: 57px;
+	margin: 0 auto;
+	border-bottom: 1px solid grey;
+	/* background-color: pink; */
+}
+
+.nav-c{
+	width: 1200px;
+	height: 65px;
+	margin: 0 auto;
+	/* background-color: grey; */
+}
+
+.nav-a,.nav-b,.nav-c{
+	overflow: hidden;
+}
+
+.main2-nav-ul {
+	list-style-type: none;
+
+}
+
+.main2-nav-ul li{
+	float: left;
+}
+
+.main2-nav-ul li a{
+	display: block;
+	height: 14px;
+	line-height: 14px;
+	padding: 0 8px;
+	margin: 25.5px 0;
+	font-size:12px;
+	text-decoration: none;
+	color: black;
+	margin-right: 32px;
+}
+
+.nav-b .main2-nav-ul li a{
+	margin: 21.5px 0;
+	margin-right: 32px;
+}
+
+.main2-nav-ul li:nth-of-type(2) a{
+	background-color: #00A4FF;
+}
+
+.main2-nav-ul li:nth-of-type(1) a{
+	padding-left: 0;
+	margin-right: 10px;
+}
+
+.nav-b .main2-nav-ul li:nth-of-type(6) a{
+	color: #00A4FF;
+}
+
+.nav-b .main2-nav-ul li:nth-of-type(6){
+	float: right;
+}
+
+.main2-content{
+	width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.main2-content-left{
+	width: 960px;
+	margin-right: 12px;
+	/* border: 1px solid red; */
+}
+
+.main2-content-right{
+	width: 228px;
+	/* border: 1px solid red; */
+}
+
+.main2-floor{
+	float: left;
+}
+
+.main2-content-left ul{
+	overflow: hidden;
+}
+.main2-content-left ul li{
+	list-style-type: none;
+	float: left;
+}
+
+.main2-content-left ul li a{
+	display: block;
+	color:black;
+	height: 16px;
+	line-height: 16px;
+	margin: 28px 10px 20px 10px;
+	text-decoration: none;
+}
+
+.main2-content-left ul li:nth-of-type(1) a{
+	margin-left: 0;
+}
+
+
+/*卡片*/
+.nav-main-card{
+	width: 228px;
+	height:270px; 
+	background-color: white;
+	margin-right: 16px;
+	margin-bottom: 14px;
+	float: left;
+}
+
+.nav-main-card:nth-of-type(4),
+.nav-main-card:nth-of-type(8),
+.nav-main-card:nth-of-type(12),
+.nav-main-card:nth-of-type(16),
+.nav-main-card:nth-of-type(20)
+{
+	margin: 0;
+}
+
+.nav-main-card img{
+	display: block;
+	width: 228px;
+}
+
+.nav-main-card p{
+	margin: 0 20px;
+	font-size: 14px;
+}
+.nav-main-card p:nth-of-type(1){
+	margin: 20px;
+}
+
+.nav-main-card p:nth-of-type(2){
+	color: orange;
+}
+
+.nav-main-card p:nth-of-type(2) span{
+	color: grey;
+	font-size: 10px;
+}
+.nav-main-card:hover{
+	box-shadow: 2px 2px 2px grey;
+}
+
+.nav-main-card2{
+	width: 228px;
+	height:110px; 
+	background-color: white;
+	box-sizing: border-box;
+	padding: 20px;
+	position: relative;
+	/* border-bottom: 1px solid grey; */
+}
+
+.nav-main-card2 p{
+	font-size: 14px;
+}
+.nav-main-card2 p:nth-of-type(1){
+}
+
+.nav-main-card2 p:nth-of-type(2){
+	color: orange;
+	margin-top: 10px;
+	
+}
+
+.nav-main-card2 p:nth-of-type(2) span{
+	color: grey;
+	font-size: 10px;
+}
+
+.card2-line{
+	position: absolute;
+	width: 200px;
+	height: 1px;
+	bottom: 0;
+	border-bottom: 1px solid grey;
+}
+
+.main2-content-right h4{
+	color: #00A4FF;
+	height: 16px;
+	line-height: 16px;
+	margin: 28px 10px 20px 10px;
+}
+
+.main2-content-right-img{
+	width: 228px;
+	height: 107px;
+	background-image: url(../img/20.png);
+}
+
+
+/* 下面左右导航 */
+.content2-bottom{
+	width: 1200px;
+	margin: 0 auto;
+	/* border: 1px solid red; */
+	overflow: hidden;
+}
+
+.content2-bottom-left{
+	width: 960px;
+	padding: 30px 0;
+}
+
+.main2-content-left-bottom{
+	width: 600px;
+	/* border: 1px solid red; */
+	margin: 0 auto;
+	overflow: hidden;
+}
+.content2-bottom-right{
+	 width: 230px;
+	 height: 40px;
+}
+.content2-nav{
+	float: left;
+}
+
+.content2-floor{
+	float: left;
+}
+
+.bottom-a{
+	display: block;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 10px;
+	float:left;
+	color: black;
+	text-decoration: none;
+}
+
+.content-nav-mid{
+	display: block;
+	height: 40px;
+}
+
+.content-nav-mid ul li{
+	list-style: none;
+	float: left;
+}
+
+.content-nav-mid ul li a{
+	display: block;
+	text-decoration: none;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+}
+
+.content-nav-mid ul li:hover{
+	background-color: #00A4FF;
+}
+
+.content-nav-left a:nth-of-type(2){
+	padding-right: 20px;
+}
+
+/* end */

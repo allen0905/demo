@@ -1,0 +1,147 @@
+@charset "utf-8";
+/* 职业规划 */
+
+.top-img{
+	width: 100%;
+	height: 370px;
+	background-image: url(../img/21.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-origin: border-box;
+}
+
+.main3-nav{
+	width: 1200px;
+	height: 60px;
+	background-color: white;
+	margin: 8px auto 10px auto;
+}
+
+.main3-nav ul{
+	list-style-type: none;
+	height: 16px;
+}
+
+.main3-nav ul li{
+	height: 16px;
+	margin: 22px 0;
+	float: left;
+}
+
+.main3-nav ul li a{
+	text-decoration: none;
+	color: black;
+	padding: 0 20px;
+	border-right:1px solid grey; 
+}
+
+.main3-nav ul li:nth-child(1) a{
+	padding-left: 40px;
+}
+
+.main3-nav ul li:nth-child(9) a{
+	border: none;
+}
+
+.main3-nav ul li:hover a{
+	color: #00A4FF;
+}
+
+.main3-a{
+	width: 1200px;
+	height: 380px;
+	background-color: white;
+	margin: 0 auto 10px auto;
+	overflow: hidden;
+}
+
+.main3-floor{
+	float: left;
+}
+
+.main3-a-content{
+	box-sizing: border-box;
+	width: 430px;
+	height: 310px;
+	margin: 44px 0 0 0;
+	/* border: 1px solid red; */
+	padding-left: 30px;
+	padding-right: 50px;
+}
+
+.main3-a-right{
+	box-sizing: border-box;
+	width: 570px;
+	height: 310px;
+	margin: 44px 0 0 0;
+	/* border: 1px solid red; */
+}
+
+.main3-a-content h3{
+	font-weight: normal;
+}
+
+.main3-a-content p{
+	color: #989898;
+	font-size: 0.8em;
+}
+
+.main3-a-content p:nth-of-type(3){
+	margin-top: 36px;
+}
+
+.main3-a-content p:nth-of-type(4){
+	margin-bottom: 40px;
+}
+
+.main3-a-content p:nth-of-type(5){
+	color: black;
+
+}
+
+.main3-a-content p:nth-of-type(5) span:nth-of-type(1){
+	color: red;
+	font-size: 1.4em;
+}
+
+.main3-a-content p:nth-of-type(5) span:nth-of-type(2){
+	color: grey;
+}
+
+.main3-a-content p:nth-of-type(5) span:nth-of-type(3){
+	color: orange;
+	text-decoration: line-through;
+}
+
+/* 卡片 */
+.nav-main-card{
+	width: 228px;
+	height:270px; 
+	background-color: white;
+	margin-right: 30px;
+	margin-bottom: 14px;
+	float: left;
+	box-shadow: 2px 2px 2px grey;
+}
+
+.nav-main-card img{
+	display: block;
+	width: 228px;
+}
+
+.nav-main-card p{
+	margin: 0 20px;
+	font-size: 14px;
+}
+.nav-main-card p:nth-of-type(1){
+	margin: 20px;
+}
+
+.nav-main-card p:nth-of-type(2){
+	color: orange;
+}
+
+.nav-main-card p:nth-of-type(2) span{
+	color: grey;
+	font-size: 10px;
+}
