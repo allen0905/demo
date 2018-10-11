@@ -1,0 +1,16 @@
+/* 初始化文件 */
+div,ul,li,ol,dl,td,dd,html,body,h1,h2,h3,h4,h5,h6,img,a,i,span{
+	margin: 0;
+	padding: 0;
+}
+img{
+	border: 0;
+	display: block;
+}
+ul,ol,li{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
